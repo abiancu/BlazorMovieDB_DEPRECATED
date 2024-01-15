@@ -82,49 +82,4 @@ code {
     color: #c02d76;
 }
 
-.navbar {
-    display: flex;
-    width: 1360px;
-    height: 79px;
-    padding: 0px 37px;
-    justify-content: center;
-    align-items: center;
-    gap: 71px;
-    flex-shrink: 0;
-    border-radius: 25px;
-    background: #FFF;
-
-    .nav-items {
-        display: flex;
-        width: 82.786px;
-        height: 30.938px;
-        flex-direction: column;
-        justify-content: center;
-        flex-shrink: 0;
-    }
-
-    .nav-title {
-        width: 252px;
-        height: 41px;
-        position: absolute;
-        right: 450px;
-        top: 19px;
-        color: #000;
-        text-align: center;
-        font-family: Sarala;
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-        text-transform: uppercase;
-    }
-
-    .nav-btn {
-        width: 128.625px;
-        height: 56.25px;
-        position: absolute;
-        right: 110.375px;
-        top: 11px;
-    }
-}
 
