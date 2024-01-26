@@ -1,7 +1,27 @@
 ﻿@page "/"
+@inject MovieDBService MovieDBService
 
 <PageTitle>Home</PageTitle>
 
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+
+@code {
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var response = await MovieDBService.GetMovies();
+            System.Diagnostics.Debug.WriteLine(response);
+
+        }catch(Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Error: {ex}");
+            throw;
+        }
+
+    }
+
+}
