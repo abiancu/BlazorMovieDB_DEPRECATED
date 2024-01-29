@@ -1,6 +1,5 @@
-using System;
-using System.Net.Http;
-using System.Threading.Tasks;
+using System.Net.Http.Json;
+using BlazorMovieDB.Models;
 using BlazorMovieDB.Utilities;
 
 namespace BlazorMovieDB.Services 
@@ -14,30 +13,26 @@ namespace BlazorMovieDB.Services
         public MovieDBService(HttpClient httpClient, IConfiguration config)
         {
             _httpClient = httpClient;
+            _httpClient.BaseAddress = new Uri(Constants.baseUri);
+            _httpClient.DefaultRequestHeaders.Accept.Add(new("application/json"));
             _config = config;
-            _apiKey = config.GetValue<string>("AppSettings:API_KEY");
+            _apiKey = config["AppSettings:API_KEY"] ?? throw new Exception("MDB Key not found!");
+
         }
 
-        public async Task<HttpResponseMessage> GetMovies()
+        public async Task<Movies> GetMovies()
         {
             try
             {
-                HttpResponseMessage? response = await _httpClient.GetAsync($"{Constants.baseUri}{Constants.discoverMovie}?apiKey={_apiKey}");
-                
-                if (response is not null) 
-                {
-                    return response;
-                    
-                }else
-                {
-                    return new HttpResponseMessage(System.Net.HttpStatusCode.NotFound);
-                }
+               
+               Movies? response =  await _httpClient.GetFromJsonAsync<Movies>($"{Constants.discoverMovie}?api_key={_apiKey}");
+               System.Diagnostics.Debug.WriteLine(response);
+               return response;
                 
             }
             catch (HttpRequestException ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Error: {ex}");
-                throw;
+                throw new Exception(ex.ToString());
             }
 
         }
