@@ -5,7 +5,6 @@ using BlazorMovieDB.Services;
 
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
-var apiKey = builder.Configuration["AppSettings:API_KEY"];
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
