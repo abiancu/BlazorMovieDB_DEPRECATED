@@ -1,6 +1,5 @@
 using System.Net.Http.Json;
 using BlazorMovieDB.Models;
-using BlazorMovieDB.Options;
 using BlazorMovieDB.Utilities;
 using Microsoft.Extensions.Options;
 
@@ -10,17 +9,16 @@ namespace BlazorMovieDB.Services
     {
         private readonly HttpClient _httpClient;
         private readonly IConfiguration _config;
-        private readonly Authentication _authentication;
         private readonly string? _apiKey;
 
-        public MovieDBService(HttpClient httpClient, IConfiguration config, IOptions<Authentication> authentication)
+        public MovieDBService(HttpClient httpClient, IConfiguration config)
         {
+            
+            _config = config;
             _httpClient = httpClient;
             _httpClient.BaseAddress = new Uri(Constants.baseUri);
             _httpClient.DefaultRequestHeaders.Accept.Add(new("application/json"));
-            _config = config;
-            _authentication = authentication.Value ?? throw new Exception("MDB Key not found!");
-            _apiKey = config["AppSettings:API_KEY"] ?? throw new Exception("MDB Key not found!");
+            _apiKey = _config["Authentication:ApiKey"] ?? throw new Exception("MDB Key not found!");
 
         }
 
