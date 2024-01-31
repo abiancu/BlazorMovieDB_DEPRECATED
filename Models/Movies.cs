@@ -12,7 +12,7 @@ namespace BlazorMovieDB.Models
         public long Page { get; set; }
 
         [JsonProperty("results")]
-        public Result[]? Results { get; set; }
+        public List<Result>? Results { get; set; }
 
         [JsonProperty("total_pages")]
         public long TotalPages { get; set; }
