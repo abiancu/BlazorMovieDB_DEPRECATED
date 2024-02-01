@@ -4,6 +4,11 @@ using BlazorMovieDB;
 using BlazorMovieDB.Services;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
+if (builder.HostEnvironment.IsDevelopment())
+{
+    builder.Configuration.AddUserSecrets<Program>();
+}
+
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
