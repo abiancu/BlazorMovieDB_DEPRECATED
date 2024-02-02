@@ -21,6 +21,13 @@ html {
     
 }
 
+.main {
+    flex-grow: 1;
+    overflow-y: auto;
+    background: linear-gradient(180deg, #1D2E3E 9.5%, rgba(29, 46, 62, 0.00) 88.5%);
+    padding: 1.5rem !important;
+}
+
 .valid.modified:not([type=checkbox]) {
     outline: 1px solid #26b050;
 }
