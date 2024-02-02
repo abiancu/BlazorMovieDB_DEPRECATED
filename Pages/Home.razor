@@ -3,25 +3,26 @@
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<div class="main">
+    <h1>Popular Movies</h1>
 
-Welcome to your new app.
+    <div class="container-fluid">
+       @if (movieResults.Results is not null)
+       {
+            @foreach (var movie in movieResults.Results)
+            {
+                <li>@movie.Title</li>
+            }
+       }
+    </div>
+</div>
 
 @code {
 
+    private Movies movieResults = new();
     protected override async Task OnInitializedAsync()
     {
-        try
-        {
-            var response = await MovieDBService.GetMovies();
-            System.Diagnostics.Debug.WriteLine(response);
-
-        }catch(Exception ex)
-        {
-            System.Diagnostics.Debug.WriteLine($"Error: {ex}");
-            throw;
-        }
-
+        movieResults = await MovieDBService.GetMovies();
     }
 
 }
