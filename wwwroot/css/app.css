@@ -1,4 +1,39 @@
-html {
+body, html {
+    /*height: 100%;*/
+    /*margin: 0;*/
+    /*display: flex;*/
+    /*width: 1440px;*/
+    /*padding: 0px 40px;*/
+    /*flex-direction: column;*/
+    /*justify-content: center;*/
+    /*align-items: flex-start;*/
+    /*gap: 774px;*/
+    /*background: linear-gradient(180deg, #1D2E3E 9.5%, rgba(29, 46, 62, 0.00) 88.5%);*/
+    height: 100%;
+    overflow-y: auto;
+}
+
+body {
+    padding-top: 5rem;
+    flex-direction: column;
+}
+.content {
+    /*display: flex;*/
+    /*height: 100%;*/
+    /*width: 100%;*/
+    /*z-index: 1;*/
+    /*overflow-y: auto;*/
+    display: flex;
+    height: 100%;
+    z-index: 1;
+    background-color: white;
+}
+
+.main {
+    /*flex-grow: 1;*/
+    /*overflow-y: auto;*/
+    /*background: linear-gradient(180deg, #1D2E3E 9.5%, rgba(29, 46, 62, 0.00) 88.5%);*/
+    /*padding: 1.5rem !important;*/
     height: 100%;
     margin: 0;
     display: flex;
@@ -9,23 +44,6 @@ html {
     align-items: flex-start;
     gap: 774px;
     background: linear-gradient(180deg, #1D2E3E 9.5%, rgba(29, 46, 62, 0.00) 88.5%);
-}
-
-.content {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    z-index: 1;
-    overflow-y: auto;
-
-    
-}
-
-.main {
-    flex-grow: 1;
-    overflow-y: auto;
-    background: linear-gradient(180deg, #1D2E3E 9.5%, rgba(29, 46, 62, 0.00) 88.5%);
-    padding: 1.5rem !important;
 }
 
 .valid.modified:not([type=checkbox]) {
