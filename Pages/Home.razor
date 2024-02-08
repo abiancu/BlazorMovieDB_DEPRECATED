@@ -3,19 +3,17 @@
 
 <PageTitle>Home</PageTitle>
 
-<div class="main">
+<div class="container">
     <h1>Popular Movies</h1>
-
-    <div class="container-fluid">
-       @if (movieResults.Results is not null)
-       {
-            @foreach (var movie in movieResults.Results)
-            {
-                <li>@movie.Title</li>
-            }
-       }
-    </div>
+    @if (movieResults.Results is not null)
+    {
+        @foreach (var movie in movieResults.Results)
+        {
+            <li>@movie.Title</li>
+        }
+    }
 </div>
+
 
 @code {
 
